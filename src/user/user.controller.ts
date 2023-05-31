@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put, Param, Delete} from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Param, Delete, Patch} from '@nestjs/common';
 import { AppService } from './user.service';
 import { User } from './user.models';
 import { UserUpdateDto } from './userUpdate.dto';
@@ -17,7 +17,7 @@ export class AppController {
     return this.appService.readUser()
   }
 
-  @Put(':id')
+  @Patch(':id')
   async updateUser(
     @Param('id') id:string ,@Body() updateData:UserUpdateDto
     ):Promise<User>{
